@@ -405,7 +405,7 @@ function App() {
             <p>&copy; {new Date().getFullYear()} Mindcare Therapy Chennai. All rights reserved.</p>
             {/* LINKEDIN DEV CREDIT ADDED HERE */}
             <p className="dev-credit">
-              Crafted with passion by <a href="https://linkedin.com/in/karl" target="_blank" rel="noopener noreferrer" className="karl-link">Karl</a>
+              Crafted with passion by <a href="https://www.linkedin.com/in/karlarvindraj/" target="_blank" rel="noopener noreferrer" className="karl-link">Karl</a>
             </p>
           </div>
           <div className="legal-links">
