@@ -84,18 +84,18 @@ const FAQItem = ({ faq, isOpen, onClick }) => (
 // --- Content Data ---
 const therapists = [
   {
-    name: 'Sarah Jenkins',
-    title: 'LMFT, Emotionally Focused Therapist',
-    bio: 'With over a decade of clinical experience, Sarah specializes in vulnerability and emotional intimacy. She helps couples break down defensive walls, navigate complex emotional landscapes, and learn to communicate securely from the heart.',
-    image: 'https://images.unsplash.com/photo-1557862921-37829c790f19?q=80&w=600&auto=format&fit=crop',
-    tags: ['Vulnerability Mapping', 'Emotionally Focused Therapy']
+    name: 'Dr. Kaviya',
+    title: 'Couple & Marriage Counsellor, Chennai',
+    bio: 'With years of experience in relationship therapy, Dr. Meera helps couples reconnect emotionally and communicate with greater understanding. She supports partners dealing with misunderstandings, trust issues, and emotional distance, guiding them toward healthier conversations and stronger bonds. Her approach to couple counselling in Chennai focuses on empathy, emotional awareness, and practical tools that help couples rebuild trust and strengthen their relationship.',
+    image: '/Assets/KarunaTest.png',
+    tags: ['Couple Counselling Chennai', 'Emotional Connection', 'Communication Therapy']
   },
   {
-    name: 'David Miller',
-    title: 'Clinical Psychologist, Gottman Level 3',
-    bio: 'David brings a highly structured, evidence-based approach to the room. He focuses on actionable conflict resolution, rebuilding broken trust after betrayal, and creating practical, step-by-step roadmaps for relationship success.',
-    image: 'https://images.unsplash.com/photo-1599566150163-29194dcaad36?q=80&w=600&auto=format&fit=crop',
-    tags: ['Gottman Method', 'Trust & Betrayal Recovery']
+    name: 'Dr. Arjun Raman',
+    title: 'Relationship Therapist & Clinical Psychologist, Chennai',
+    bio: 'Dr. Arjun offers a structured and practical approach to relationship counselling for couples in Chennai. He helps partners manage recurring conflicts, rebuild trust after difficult experiences, and develop healthier communication patterns. Through evidence-based couples therapy, he guides partners toward resolving disagreements, improving understanding, and creating a more stable and fulfilling relationship.',
+    image: '/Assets/MaleTest.png',
+    tags: ['Marriage Counselling', 'Conflict Resolution', 'Trust Building']
   },
 ];
 
@@ -140,7 +140,7 @@ function App() {
         <div className="nav-content">
           <div className="logo-container" onClick={() => scrollTo('hero')}>
             <img src="/MindCareLogo.jpg" alt="Happy MindCare Couple Therapy Chennai Logo" className="logo-img" />
-            <span className="logo-text">Happy MindCare<span>.</span></span>
+            <span className="logo-text">Happy MindCare</span>
           </div>
           <div className="nav-links">
             {['about', 'services', 'testimonials', 'faq'].map(link => (
@@ -262,12 +262,12 @@ function App() {
         <div className="marquee-container">
           <Marquee speed={45} pauseOnHover={true} gradient={true} gradientColor={[253, 252, 248]} gradientWidth={100}>
             {[
-              { rating: 4.5, names: "Emma & James", text: "Therapy is hard work, and our first few sessions were emotionally draining. But Sarah and David guided us through the discomfort. We communicate better now than we did on our wedding day." },
-              { rating: 5, names: "Arjun & Priya", text: "Navigating an arranged marriage with pressure from both families was overwhelming. The dual-therapist approach gave us a completely neutral, safe space to finally put our partnership first." },
-              { rating: 4, names: "Mark & Sarah", text: "Rebuilding trust after betrayal took longer than we anticipated, and there were setbacks. But the Gottman framework they provided gave us a clear roadmap. We are finally moving forward." },
-              { rating: 5, names: "Karthik & Ananya", text: "Having a male and female therapist in the room changed everything. Neither of us ever felt judged or ganged up on. A truly premium and empathetic experience in Chennai." },
-              { rating: 4.5, names: "Liam & Sophia", text: "We learned more about how to communicate in our first month with Happy MindCare than we did in 10 years of marriage. It is highly structured and incredibly effective." }
-            ].map((test, index) => (
+  { rating: 4.5, names: "Rahul & Sneha", text: "We were constantly arguing and struggling to understand each other. The counselling sessions helped us slow down, listen better, and communicate without hurting each other. It has made a real difference in our relationship." },
+  { rating: 5, names: "Arjun & Priya", text: "Balancing expectations from family and our own relationship was very stressful. The counselling gave us a neutral and supportive space to talk openly and understand each other better. We feel much stronger as a couple now." },
+  { rating: 4, names: "Allwin & Hema", text: "Trust had broken down between us and we didn’t know how to move forward. Through therapy we learned practical ways to rebuild trust and communicate honestly. It wasn’t easy, but it helped us reconnect." },
+  { rating: 5, names: "Vikram & Amritha", text: "Having both perspectives in counselling helped us see things differently. We felt heard and respected throughout the sessions. It was a very safe and comfortable experience for us in Chennai." },
+  { rating: 4.5, names: "Pradeep & Subiksha", text: "We had been facing the same arguments for years. Counselling helped us understand the root of our conflicts and improve our communication. Our relationship feels calmer and much healthier now." }
+].map((test, index) => (
               <div key={index} className="testimonial-card glass-card marquee-item">
                 <Quote className="quote-icon" size={32} />
                 <RatingStars rating={test.rating} />
