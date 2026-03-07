@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
+import { motion, AnimatePresence, useScroll, useTransform } from 'framer-motion';
 import Marquee from 'react-fast-marquee';
 import {
   Heart, Shield, Users, Star, StarHalf,
@@ -8,6 +8,30 @@ import {
 } from 'lucide-react';
 import './App.css';
 
+// --- EXACT REPLICA PURE SVG LOGO ---
+const BrandLogo = ({ className = "" }) => (
+  <svg 
+    viewBox="0 0 100 80" 
+    fill="none" 
+    xmlns="http://www.w3.org/2000/svg" 
+    className={`brand-logo-svg ${className}`}
+  >
+    {/* Left Figure Head */}
+    <circle cx="35" cy="25" r="12" className="svg-fill-primary" />
+    {/* Right Figure Head */}
+    <circle cx="65" cy="25" r="12" className="svg-fill-accent" />
+    
+    {/* Left Figure Body (Sweeps right) */}
+    <path d="M 15 55 C 15 30, 40 30, 50 45 C 60 60, 65 75, 50 75 C 35 75, 15 70, 15 55 Z" className="svg-fill-primary" />
+    
+    {/* Right Figure Body (Sweeps left, overlaps) */}
+    <path d="M 85 55 C 85 30, 60 30, 50 45 C 40 60, 35 75, 50 75 C 65 75, 85 70, 85 55 Z" className="svg-fill-accent" opacity="0.9" />
+    
+    {/* Center Intersection Shadow (Creates the knot effect) */}
+    <path d="M 50 45 C 45 53, 47 62, 50 68 C 53 62, 55 53, 50 45 Z" className="svg-fill-primary-light" opacity="0.5"/>
+  </svg>
+);
+
 // --- Official WhatsApp SVG Component ---
 const WhatsAppIcon = () => (
   <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="#FFFFFF">
@@ -15,78 +39,70 @@ const WhatsAppIcon = () => (
   </svg>
 );
 
-// --- Scroll Reveal Wrapper ---
-const FadeIn = ({ children, delay = 0, direction = 'up', className = "" }) => {
-  const directions = {
-    up: { y: 40, opacity: 0 },
-    down: { y: -40, opacity: 0 },
-    left: { x: 40, opacity: 0 },
-    right: { x: -40, opacity: 0 }
-  };
+// --- Cinematic Word Reveal ---
+const AnimatedText = ({ text, delayOffset = 0 }) => {
+  const words = text.split(" ");
   return (
-    <motion.div
-      initial={directions[direction]}
-      whileInView={{ y: 0, x: 0, opacity: 1 }}
-      viewport={{ once: true, margin: "-50px" }}
-      transition={{ duration: 0.8, delay, ease: [0.16, 1, 0.3, 1] }}
-      className={className}
-    >
+    <motion.div initial="hidden" whileInView="visible" viewport={{ once: true }} className="animated-text-container">
+      {words.map((word, index) => (
+        <span key={index} className="inline-block overflow-hidden mr-[0.25em]">
+          <motion.span
+            className="inline-block"
+            variants={{ hidden: { y: "120%", opacity: 0, rotateZ: 5 }, visible: { y: 0, opacity: 1, rotateZ: 0 } }}
+            transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1], delay: delayOffset + (index * 0.08) }}
+          >
+            {word}&nbsp;
+          </motion.span>
+        </span>
+      ))}
+    </motion.div>
+  );
+};
+
+// --- Enhanced Scroll Reveal ---
+const FadeIn = ({ children, delay = 0, direction = 'up', className = "" }) => {
+  const directions = { up: { y: 60, opacity: 0, scale: 0.98 }, down: { y: -60, opacity: 0, scale: 0.98 }, left: { x: 60, opacity: 0, scale: 0.98 }, right: { x: -60, opacity: 0, scale: 0.98 } };
+  return (
+    <motion.div initial={directions[direction]} whileInView={{ y: 0, x: 0, opacity: 1, scale: 1 }} viewport={{ once: true, margin: "-50px" }} transition={{ duration: 0.9, delay, ease: [0.16, 1, 0.3, 1] }} className={className}>
       {children}
     </motion.div>
   );
 };
 
-// --- Dynamic Star Rating Component ---
 const RatingStars = ({ rating }) => {
-  const stars = [];
-  for (let i = 1; i <= 5; i++) {
-    if (i <= rating) {
-      stars.push(<Star key={i} fill="currentColor" size={18} />);
-    } else if (i - 0.5 === rating) {
-      stars.push(<StarHalf key={i} fill="currentColor" size={18} />);
-    } else {
-      stars.push(<Star key={i} color="currentColor" size={18} />);
-    }
-  }
-  return <div className="stars">{stars}</div>;
+  return (
+    <div className="stars">
+      {[...Array(5)].map((_, i) => (
+        <React.Fragment key={i}>
+          {i + 1 <= rating ? <Star fill="currentColor" size={18} /> : i + 0.5 === rating ? <StarHalf fill="currentColor" size={18} /> : <Star color="currentColor" size={18} />}
+        </React.Fragment>
+      ))}
+    </div>
+  );
 };
 
-// --- SEO-Optimized FAQ Accordion ---
 const FAQItem = ({ faq, isOpen, onClick }) => (
-  <div
-    className={`faq-item glass-card ${isOpen ? 'open' : ''}`}
-    itemScope itemProp="mainEntity" itemType="https://schema.org/Question"
-  >
+  <div className={`faq-item glass-card ${isOpen ? 'open' : ''}`} itemScope itemProp="mainEntity" itemType="https://schema.org/Question">
     <button className="faq-question" onClick={onClick} aria-expanded={isOpen}>
       <h3 itemProp="name">{faq.question}</h3>
-      <motion.div animate={{ rotate: isOpen ? 45 : 0 }} transition={{ duration: 0.3 }} className="faq-icon">
-        <Plus size={20} />
-      </motion.div>
+      <motion.div animate={{ rotate: isOpen ? 45 : 0 }} transition={{ duration: 0.3 }} className="faq-icon"><Plus size={20} /></motion.div>
     </button>
     <AnimatePresence>
       {isOpen && (
-        <motion.div
-          initial={{ height: 0, opacity: 0 }}
-          animate={{ height: 'auto', opacity: 1 }}
-          exit={{ height: 0, opacity: 0 }}
-          transition={{ duration: 0.3 }}
-          className="faq-answer-wrapper"
-        >
-          <div className="faq-answer" itemScope itemProp="acceptedAnswer" itemType="https://schema.org/Answer">
-            <p itemProp="text">{faq.answer}</p>
-          </div>
+        <motion.div initial={{ height: 0, opacity: 0 }} animate={{ height: 'auto', opacity: 1 }} exit={{ height: 0, opacity: 0 }} transition={{ duration: 0.3 }} className="faq-answer-wrapper">
+          <div className="faq-answer" itemScope itemProp="acceptedAnswer" itemType="https://schema.org/Answer"><p itemProp="text">{faq.answer}</p></div>
         </motion.div>
       )}
     </AnimatePresence>
   </div>
 );
 
-// --- Content Data ---
+// --- Data ---
 const therapists = [
   {
     name: 'Dr. Kaviya',
     title: 'Couple & Marriage Counsellor, Chennai',
-    bio: 'With years of experience in relationship therapy, Dr. Meera helps couples reconnect emotionally and communicate with greater understanding. She supports partners dealing with misunderstandings, trust issues, and emotional distance, guiding them toward healthier conversations and stronger bonds. Her approach to couple counselling in Chennai focuses on empathy, emotional awareness, and practical tools that help couples rebuild trust and strengthen their relationship.',
+    bio: 'With years of experience in relationship therapy, Dr. Kaviya helps couples reconnect emotionally and communicate with greater understanding. She supports partners dealing with misunderstandings, trust issues, and emotional distance, guiding them toward healthier conversations and stronger bonds. Her approach to couple counselling in Chennai focuses on empathy, emotional awareness, and practical tools that help couples rebuild trust and strengthen their relationship.',
     image: '/Assets/KarunaTest.png',
     tags: ['Couple Counselling Chennai', 'Emotional Connection', 'Communication Therapy']
   },
@@ -102,9 +118,9 @@ const therapists = [
 const faqs = [
   { question: "How long does couples therapy typically take?", answer: "While every relationship is unique, most couples see significant improvements within 12 to 16 sessions. Our goal is not to keep you in therapy forever, but to equip you with the tools to manage conflicts independently." },
   { question: "What if my partner refuses to come to therapy?", answer: "It is very common for one partner to be hesitant. We recommend scheduling an initial 'Discovery' session. Often, when the reluctant partner sees that our process is structured and strictly non-judgmental, they become willing to participate." },
-  { question: "Do you take sides during arguments?", answer: "Never. In couples therapy, the relationship itself is our client. Our co-therapy model (having both Sarah and David in the room) specifically prevents bias, ensuring both individuals feel equally heard, validated, and challenged." },
+  { question: "Do you take sides during arguments?", answer: "Never. In couples therapy, the relationship itself is our client. Our co-therapy model prevents bias, ensuring both individuals feel equally heard, validated, and challenged." },
   { question: "Is therapy only for couples on the brink of divorce?", answer: "Not at all. Many of our clients are healthy couples seeking premarital counseling, navigating major life transitions (like having a baby or changing careers), or simply wanting to deepen their emotional intimacy." },
-  { question: "Do you offer online sessions, or is it strictly in-person?", answer: "We offer a hybrid approach. While we highly recommend in-person sessions at our Anna Nagar clinic for the initial phases and high-conflict interventions, we provide secure, encrypted video sessions for ongoing support." }
+  { question: "Do you offer online sessions, or is it strictly in-person?", answer: "We offer a hybrid approach. While we highly recommend in-person sessions at our Chennai clinic for the initial phases and high-conflict interventions, we provide secure, encrypted video sessions for ongoing support." }
 ];
 
 function App() {
@@ -139,7 +155,7 @@ function App() {
       <nav className={`navbar ${isScrolled ? 'scrolled' : ''}`}>
         <div className="nav-content">
           <div className="logo-container" onClick={() => scrollTo('hero')}>
-            <img src="/MindCareLogo.jpg" alt="Happy MindCare Couple Therapy Chennai Logo" className="logo-img" />
+            <BrandLogo className="logo-img" />
             <span className="logo-text">Happy MindCare</span>
           </div>
           <div className="nav-links">
@@ -175,7 +191,7 @@ function App() {
         </div>
       </section>
 
-      {/* --- ULTRA-PREMIUM EDITORIAL TEAM SECTION --- */}
+      {/* --- EDITORIAL TEAM SECTION --- */}
       <section id="about" className="team-section">
         <FadeIn>
           <div className="section-header">
@@ -262,12 +278,12 @@ function App() {
         <div className="marquee-container">
           <Marquee speed={45} pauseOnHover={true} gradient={true} gradientColor={[253, 252, 248]} gradientWidth={100}>
             {[
-  { rating: 4.5, names: "Rahul & Sneha", text: "We were constantly arguing and struggling to understand each other. The counselling sessions helped us slow down, listen better, and communicate without hurting each other. It has made a real difference in our relationship." },
-  { rating: 5, names: "Arjun & Priya", text: "Balancing expectations from family and our own relationship was very stressful. The counselling gave us a neutral and supportive space to talk openly and understand each other better. We feel much stronger as a couple now." },
-  { rating: 4, names: "Allwin & Hema", text: "Trust had broken down between us and we didn’t know how to move forward. Through therapy we learned practical ways to rebuild trust and communicate honestly. It wasn’t easy, but it helped us reconnect." },
-  { rating: 5, names: "Vikram & Amritha", text: "Having both perspectives in counselling helped us see things differently. We felt heard and respected throughout the sessions. It was a very safe and comfortable experience for us in Chennai." },
-  { rating: 4.5, names: "Pradeep & Subiksha", text: "We had been facing the same arguments for years. Counselling helped us understand the root of our conflicts and improve our communication. Our relationship feels calmer and much healthier now." }
-].map((test, index) => (
+              { rating: 4.5, names: "Rahul & Sneha", text: "We were constantly arguing and struggling to understand each other. The counselling sessions helped us slow down, listen better, and communicate without hurting each other. It has made a real difference in our relationship." },
+              { rating: 5, names: "Arjun & Priya", text: "Balancing expectations from family and our own relationship was very stressful. The counselling gave us a neutral and supportive space to talk openly and understand each other better. We feel much stronger as a couple now." },
+              { rating: 4, names: "Allwin & Hema", text: "Trust had broken down between us and we didn’t know how to move forward. Through therapy we learned practical ways to rebuild trust and communicate honestly. It wasn’t easy, but it helped us reconnect." },
+              { rating: 5, names: "Vikram & Amritha", text: "Having both perspectives in counselling helped us see things differently. We felt heard and respected throughout the sessions. It was a very safe and comfortable experience for us in Chennai." },
+              { rating: 4.5, names: "Pradeep & Subiksha", text: "We had been facing the same arguments for years. Counselling helped us understand the root of our conflicts and improve our communication. Our relationship feels calmer and much healthier now." }
+            ].map((test, index) => (
               <div key={index} className="testimonial-card glass-card marquee-item">
                 <Quote className="quote-icon" size={32} />
                 <RatingStars rating={test.rating} />
@@ -377,7 +393,7 @@ function App() {
         <div className="footer-main-grid">
           <div className="footer-brand-col">
             <div className="footer-logo">
-              <img src="/MindCareLogo.jpg" alt="Mindcare Logo" />
+              <BrandLogo className="footer-logo-icon" />
               <h3>Happy MindCare<span>.</span></h3>
             </div>
             <p className="footer-mission">Chennai's premier co-therapy clinic dedicated to helping couples heal, communicate, and build secure emotional attachments.</p>
@@ -428,7 +444,6 @@ function App() {
         <div className="footer-copyright">
           <div className="copyright-text">
             <p>&copy; {new Date().getFullYear()} Happy MindCare. All rights reserved.</p>
-            {/* LINKEDIN DEV CREDIT */}
             <p className="dev-credit">
               Crafted with passion by <a href="https://www.linkedin.com/in/karlarvindraj/" target="_blank" rel="noopener noreferrer" className="karl-link">Karl</a>
             </p>
