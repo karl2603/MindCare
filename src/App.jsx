@@ -11,7 +11,7 @@ import './App.css';
 // --- Official WhatsApp SVG Component ---
 const WhatsAppIcon = () => (
   <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="#FFFFFF">
-    <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.405-.883-.733-1.476-1.639-1.649-1.935-.173-.298-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51h-.57c-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
+    <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.405-.883-.733-1.476-1.639-1.649-1.935-.173-.298-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51h-.57c-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z" />
   </svg>
 );
 
@@ -53,7 +53,7 @@ const RatingStars = ({ rating }) => {
 
 // --- SEO-Optimized FAQ Accordion ---
 const FAQItem = ({ faq, isOpen, onClick }) => (
-  <div 
+  <div
     className={`faq-item glass-card ${isOpen ? 'open' : ''}`}
     itemScope itemProp="mainEntity" itemType="https://schema.org/Question"
   >
@@ -83,17 +83,17 @@ const FAQItem = ({ faq, isOpen, onClick }) => (
 
 // --- Content Data ---
 const therapists = [
-  { 
-    name: 'Sarah Jenkins', 
-    title: 'LMFT, Emotionally Focused Therapist', 
-    bio: 'With over a decade of clinical experience, Sarah specializes in vulnerability and emotional intimacy. She helps couples break down defensive walls, navigate complex emotional landscapes, and learn to communicate securely from the heart.', 
+  {
+    name: 'Sarah Jenkins',
+    title: 'LMFT, Emotionally Focused Therapist',
+    bio: 'With over a decade of clinical experience, Sarah specializes in vulnerability and emotional intimacy. She helps couples break down defensive walls, navigate complex emotional landscapes, and learn to communicate securely from the heart.',
     image: 'https://images.unsplash.com/photo-1557862921-37829c790f19?q=80&w=600&auto=format&fit=crop',
     tags: ['Vulnerability Mapping', 'Emotionally Focused Therapy']
   },
-  { 
-    name: 'David Miller', 
-    title: 'Clinical Psychologist, Gottman Level 3', 
-    bio: 'David brings a highly structured, evidence-based approach to the room. He focuses on actionable conflict resolution, rebuilding broken trust after betrayal, and creating practical, step-by-step roadmaps for relationship success.', 
+  {
+    name: 'David Miller',
+    title: 'Clinical Psychologist, Gottman Level 3',
+    bio: 'David brings a highly structured, evidence-based approach to the room. He focuses on actionable conflict resolution, rebuilding broken trust after betrayal, and creating practical, step-by-step roadmaps for relationship success.',
     image: 'https://images.unsplash.com/photo-1599566150163-29194dcaad36?q=80&w=600&auto=format&fit=crop',
     tags: ['Gottman Method', 'Trust & Betrayal Recovery']
   },
@@ -110,6 +110,9 @@ const faqs = [
 function App() {
   const [isScrolled, setIsScrolled] = useState(false);
   const [openFaqIndex, setOpenFaqIndex] = useState(0);
+  const message = encodeURIComponent(
+    "Hello, I came across your couple counselling services in Chennai. I would like to know more about booking a session. Could you please share the details and available timings?"
+  );
 
   useEffect(() => {
     const handleScroll = () => setIsScrolled(window.scrollY > 20);
@@ -181,18 +184,18 @@ function App() {
             <p className="header-desc">Traditional therapy often leaves one partner feeling misunderstood. Our dual-therapist model ensures total balance, empathy, and objective clarity.</p>
           </div>
         </FadeIn>
-        
+
         <div className="team-editorial-container">
           {therapists.map((therapist, index) => {
             const isReverse = index % 2 !== 0;
             return (
               <FadeIn key={therapist.name} delay={index * 0.1} className={`editorial-row ${isReverse ? 'reverse' : ''}`}>
-                
+
                 {/* Image Column */}
                 <div className="editorial-image-col">
                   <img src={therapist.image} alt={`${therapist.name} - Couple Therapist in Chennai`} />
                 </div>
-                
+
                 {/* Floating Glass Content Column */}
                 <div className="editorial-content-col">
                   <div className="editorial-content-inner">
@@ -200,15 +203,15 @@ function App() {
                     <h3 className="editorial-name">{therapist.name}</h3>
                     <p className="editorial-title">{therapist.title}</p>
                     <p className="editorial-bio">{therapist.bio}</p>
-                    
+
                     <ul className="editorial-tags">
                       {therapist.tags.map((tag, i) => (
-                        <li key={i}><CheckCircle2 size={16} className="editorial-tag-icon"/> {tag}</li>
+                        <li key={i}><CheckCircle2 size={16} className="editorial-tag-icon" /> {tag}</li>
                       ))}
                     </ul>
                   </div>
                 </div>
-                
+
               </FadeIn>
             );
           })}
@@ -255,7 +258,7 @@ function App() {
             <p className="header-desc">Real stories from couples who have navigated their toughest challenges with our guidance.</p>
           </div>
         </FadeIn>
-        
+
         <div className="marquee-container">
           <Marquee speed={45} pauseOnHover={true} gradient={true} gradientColor={[253, 252, 248]} gradientWidth={100}>
             {[
@@ -301,7 +304,7 @@ function App() {
             <div className="booking-info-panel">
               <h2>Take the first step toward each other.</h2>
               <p>Reaching out is often the hardest part. Book a complimentary consultation to see if our approach is right for your relationship.</p>
-              
+
               <ul className="booking-perks">
                 <li>
                   <CheckCircle2 className="perk-icon" />
@@ -339,17 +342,17 @@ function App() {
                     <label htmlFor="email">Email Address</label>
                   </div>
                 </div>
-                
+
                 <div className="input-wrapper">
                   <input type="tel" id="phone" placeholder=" " required />
                   <label htmlFor="phone">Phone Number</label>
                 </div>
-                
+
                 <div className="input-wrapper">
                   <textarea id="message" rows="3" placeholder=" " required></textarea>
                   <label htmlFor="message">Briefly introduce what you want to work on...</label>
                 </div>
-                
+
                 <button type="submit" className="submit-btn hover-sweep-btn">
                   Request Consultation <ArrowUpRight size={20} />
                 </button>
@@ -366,7 +369,7 @@ function App() {
             <h2>Ready to rewrite your story?</h2>
             <p>Don't wait until the distance feels impossible to cross.</p>
             <button className="footer-cta-btn hover-sweep-btn" onClick={() => scrollTo('booking')}>
-              Book Your Session Today <ArrowUpRight size={20}/>
+              Book Your Session Today <ArrowUpRight size={20} />
             </button>
           </div>
         </div>
@@ -379,9 +382,9 @@ function App() {
             </div>
             <p className="footer-mission">Chennai's premier co-therapy clinic dedicated to helping couples heal, communicate, and build secure emotional attachments.</p>
             <div className="social-pills">
-              <a href="#"><Facebook size={18}/></a>
-              <a href="#"><Instagram size={18}/></a>
-              <a href="#"><Linkedin size={18}/></a>
+              <a href="https://www.facebook.com/profile.php?id=61578581564154&rdid=2kntDuGVig8T8pcL&share_url=https%3A%2F%2Fwww.facebook.com%2Fshare%2F1Fqijiq1pi%2F#"><Facebook size={18} /></a>
+              <a href="https://www.instagram.com/mindcare888?igsh=NjNhbzRlc3Znandy"><Instagram size={18} /></a>
+              <a href="https://www.linkedin.com/in/mind-care-620009378/"><Linkedin size={18} /></a>
             </div>
           </div>
 
@@ -398,33 +401,33 @@ function App() {
           <div className="footer-contact-col">
             <h4>Connect</h4>
             <div className="contact-item">
-              <MapPin className="contact-icon"/>
+              <MapPin className="contact-icon" />
               <div>
-                <p><strong>Anna Nagar East</strong></p>
-                <p>Chennai, Tamil Nadu 600102</p>
+                <p><strong>Ayanambakkam</strong></p>
+                <p>Chennai, Tamil Nadu 600077</p>
               </div>
             </div>
             <div className="contact-item">
-              <Clock className="contact-icon"/>
+              <Clock className="contact-icon" />
               <div>
                 <p><strong>Mon - Sat:</strong> 10:00 AM - 8:00 PM</p>
                 <p>Online & In-person available.</p>
               </div>
             </div>
             <div className="contact-item">
-              <Phone className="contact-icon"/>
-              <p>+91 98765 43210</p>
+              <Phone className="contact-icon" />
+              <p>+91 63697 41441</p>
             </div>
             <div className="contact-item">
-              <Mail className="contact-icon"/>
-              <p>hello@happymindcare.in</p>
+              <Mail className="contact-icon" />
+              <p>Mindcare888@gmail.com</p>
             </div>
           </div>
         </div>
 
         <div className="footer-copyright">
           <div className="copyright-text">
-            <p>&copy; {new Date().getFullYear()} Happy MindCare Therapy Chennai. All rights reserved.</p>
+            <p>&copy; {new Date().getFullYear()} Happy MindCare. All rights reserved.</p>
             {/* LINKEDIN DEV CREDIT */}
             <p className="dev-credit">
               Crafted with passion by <a href="https://www.linkedin.com/in/karlarvindraj/" target="_blank" rel="noopener noreferrer" className="karl-link">Karl</a>
@@ -438,10 +441,14 @@ function App() {
       </footer>
 
       {/* --- SIMPLE WHATSAPP BUTTON --- */}
-      <a href="https://wa.me/919876543210" target="_blank" rel="noopener noreferrer" className="whatsapp-simple" aria-label="Chat with us on WhatsApp">
+      <a
+        href={`https://wa.me/916369741441?text=${message}`}
+        target="_blank"
+        rel="noopener noreferrer"
+        className="whatsapp-simple"
+      >
         <WhatsAppIcon />
       </a>
-      
     </div>
   );
 }
