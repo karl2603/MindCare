@@ -180,7 +180,7 @@ function App() {
           <FadeIn delay={0.3}>
             <div className="hero-buttons">
               <button className="primary-btn hover-sweep-btn" onClick={() => scrollTo('booking')}>
-                <span className="btn-text">Start Your Healing Journey</span>
+                <span className="btn-text">Book Your First Session</span>
                 <div className="btn-icon"><ArrowUpRight size={22} /></div>
               </button>
               <button className="secondary-btn" onClick={() => scrollTo('services')}>
