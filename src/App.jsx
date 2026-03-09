@@ -474,7 +474,7 @@ function App() {
             </div>
             <div className="contact-item">
               <Phone className="contact-icon" />
-              <p>+91 63697 41441</p>
+              <p>+91 98400 22830</p>
             </div>
             <div className="contact-item">
               <Mail className="contact-icon" />
