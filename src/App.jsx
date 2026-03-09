@@ -60,7 +60,7 @@ function App() {
       <Footer scrollTo={scrollTo} setActiveModal={setActiveModal} />
 
       {/* Floating WhatsApp Button */}
-      <a href={`https://wa.me/916369741441?text=${whatsappMessage}`} target="_blank" rel="noopener noreferrer" className="whatsapp-simple">
+      <a href={`https://wa.me/919840022830?text=${whatsappMessage}`} target="_blank" rel="noopener noreferrer" className="whatsapp-simple">
         <WhatsAppIcon />
       </a>
 
