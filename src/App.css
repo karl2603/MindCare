@@ -559,3 +559,111 @@ section { padding: 8rem 5%; position: relative; z-index: 2; }
   .faq-question { padding: 1.5rem; }
   .faq-answer { padding: 0 1.5rem 1.5rem 1.5rem; }
 }
+
+/* =========================================
+   LEGAL MODAL STYLES (Privacy / Terms)
+   ========================================= */
+   .legal-modal-overlay {
+    position: fixed;
+    top: 0; left: 0; width: 100vw; height: 100vh;
+    background: rgba(15, 41, 30, 0.6);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    z-index: 9999;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 2rem;
+  }
+  
+  .legal-modal-content {
+    background: var(--bg-color);
+    width: 100%;
+    max-width: 750px;
+    max-height: 85vh;
+    display: flex;
+    flex-direction: column;
+    border-radius: 24px;
+    overflow: hidden;
+    box-shadow: 0 40px 100px rgba(0,0,0,0.3);
+  }
+  
+  .legal-modal-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 2.5rem 3rem;
+    border-bottom: 1px solid rgba(15, 41, 30, 0.1);
+    background: var(--white);
+  }
+  
+  .legal-modal-header h3 {
+    margin: 0;
+    font-size: 2rem;
+    color: var(--primary);
+  }
+  
+  .legal-modal-close {
+    background: rgba(15, 41, 30, 0.05);
+    color: var(--primary);
+    border: none;
+    width: 45px;
+    height: 45px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: var(--transition);
+  }
+  
+  .legal-modal-close:hover {
+    background: var(--accent);
+    color: var(--white);
+    transform: rotate(90deg);
+  }
+  
+  .legal-modal-body {
+    padding: 3rem;
+    overflow-y: auto;
+    scrollbar-width: thin;
+    scrollbar-color: var(--primary) transparent;
+  }
+  
+  .legal-modal-body h4 {
+    font-family: 'Manrope', sans-serif;
+    font-size: 1.2rem;
+    font-weight: 700;
+    color: var(--primary);
+    margin: 2rem 0 1rem 0;
+  }
+  
+  .legal-modal-body h4:first-child {
+    margin-top: 0;
+  }
+  
+  .legal-modal-body p {
+    color: var(--text-light);
+    line-height: 1.8;
+    margin-bottom: 1.5rem;
+    font-size: 1.05rem;
+  }
+  
+  /* Modal Responsiveness */
+  @media (max-width: 768px) {
+    .legal-modal-overlay {
+      padding: 1rem;
+    }
+    .legal-modal-content {
+      max-height: 90vh;
+    }
+    .legal-modal-header {
+      padding: 1.5rem 2rem;
+    }
+    .legal-modal-header h3 {
+      font-size: 1.6rem;
+    }
+    .legal-modal-body {
+      padding: 2rem;
+    }
+  }

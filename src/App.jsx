@@ -4,7 +4,7 @@ import Marquee from 'react-fast-marquee';
 import {
   Heart, Shield, Users, Star, StarHalf,
   MapPin, Phone, Mail, ArrowUpRight, CheckCircle2, Quote, Clock,
-  Facebook, Instagram, Linkedin, Plus, Flame, Compass, Laptop
+  Facebook, Instagram, Linkedin, Plus, Flame, Compass, Laptop, X
 } from 'lucide-react';
 import './App.css';
 
@@ -35,7 +35,7 @@ const BrandLogo = ({ className = "" }) => (
 // --- Official WhatsApp SVG Component ---
 const WhatsAppIcon = () => (
   <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="#FFFFFF">
-    <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.405-.883-.733-1.476-1.639-1.649-1.935-.173-.298-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51h-.57c-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z" />
+    <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.405-.883-.733-1.476-1.639-1.649-1.935-.173-.298-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51h-.57c-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
   </svg>
 );
 
@@ -126,9 +126,15 @@ const faqs = [
 function App() {
   const [isScrolled, setIsScrolled] = useState(false);
   const [openFaqIndex, setOpenFaqIndex] = useState(0);
+  const [formStatus, setFormStatus] = useState(''); // Handles Formspree status
+  const [activeModal, setActiveModal] = useState(null); // Handles Legal Modals
+  
   const message = encodeURIComponent(
     "Hello, I came across your couple counselling services in Chennai. I would like to know more about booking a session. Could you please share the details and available timings?"
   );
+
+  const { scrollY } = useScroll();
+  const heroY = useTransform(scrollY, [0, 1000], [0, 250]);
 
   useEffect(() => {
     const handleScroll = () => setIsScrolled(window.scrollY > 20);
@@ -142,6 +148,32 @@ function App() {
       const offset = 80;
       const elementPosition = element.getBoundingClientRect().top + window.scrollY;
       window.scrollTo({ top: elementPosition - offset, behavior: 'smooth' });
+    }
+  };
+
+  // --- SEAMLESS FORMSPREE SUBMISSION ---
+  const handleFormSubmit = async (e) => {
+    e.preventDefault();
+    const form = e.target;
+    const data = new FormData(form);
+    
+    try {
+      const response = await fetch(form.action, {
+        method: form.method,
+        body: data,
+        headers: {
+          'Accept': 'application/json'
+        }
+      });
+      if (response.ok) {
+        setFormStatus('SUCCESS');
+        form.reset();
+        setTimeout(() => setFormStatus(''), 5000); 
+      } else {
+        setFormStatus('ERROR');
+      }
+    } catch (error) {
+      setFormStatus('ERROR');
     }
   };
 
@@ -169,14 +201,22 @@ function App() {
 
       {/* Hero Section */}
       <section id="hero" className="hero-section">
-        <div className="hero-content">
-          <FadeIn><span className="hero-badge">Expert Marriage & Relationship Counseling</span></FadeIn>
+        <motion.div className="hero-content" style={{ y: heroY }}>
+          <FadeIn>
+            <span className="hero-badge">
+              <span className="pulse-dot"></span>
+              Expert Marriage & Relationship Counseling
+            </span>
+          </FadeIn>
+          
           <FadeIn delay={0.1}>
             <h1 className="hero-title">Break the cycle. <br /><span className="italic-text">Rediscover each other.</span></h1>
           </FadeIn>
+          
           <FadeIn delay={0.2}>
             <p className="hero-subtitle">You don't have to navigate the distance alone. Experience Chennai's premier co-therapy approach—two expert perspectives working in harmony to help you heal deep wounds, improve communication, and rebuild lasting trust.</p>
           </FadeIn>
+          
           <FadeIn delay={0.3}>
             <div className="hero-buttons">
               <button className="primary-btn hover-sweep-btn" onClick={() => scrollTo('booking')}>
@@ -188,7 +228,7 @@ function App() {
               </button>
             </div>
           </FadeIn>
-        </div>
+        </motion.div>
       </section>
 
       {/* --- EDITORIAL TEAM SECTION --- */}
@@ -347,30 +387,32 @@ function App() {
             </div>
 
             <div className="booking-form-panel">
-              <form className="luxury-form" onSubmit={(e) => e.preventDefault()}>
+              {/* FORMSPREE INTEGRATION IMPLEMENTED HERE */}
+              <form className="luxury-form" action="https://formspree.io/f/xbdzddbn" method="POST" onSubmit={handleFormSubmit}>
                 <div className="input-row">
                   <div className="input-wrapper">
-                    <input type="text" id="names" placeholder=" " required />
-                    <label htmlFor="names">Your Names</label>
+                    <input type="text" id="names" name="Names" placeholder=" " required />
+                    <label htmlFor="names">Your Name</label>
                   </div>
                   <div className="input-wrapper">
-                    <input type="email" id="email" placeholder=" " required />
+                    <input type="email" id="email" name="Email" placeholder=" " required />
                     <label htmlFor="email">Email Address</label>
                   </div>
                 </div>
 
                 <div className="input-wrapper">
-                  <input type="tel" id="phone" placeholder=" " required />
+                  <input type="tel" id="phone" name="Phone" placeholder=" " required />
                   <label htmlFor="phone">Phone Number</label>
                 </div>
 
                 <div className="input-wrapper">
-                  <textarea id="message" rows="3" placeholder=" " required></textarea>
+                  <textarea id="message" name="Message" rows="3" placeholder=" " required></textarea>
                   <label htmlFor="message">Briefly introduce what you want to work on...</label>
                 </div>
 
                 <button type="submit" className="submit-btn hover-sweep-btn">
-                  Request Consultation <ArrowUpRight size={20} />
+                  {formStatus === 'SUCCESS' ? 'Request Sent Successfully!' : formStatus === 'ERROR' ? 'Error Sending Request' : 'Request Consultation'} 
+                  <ArrowUpRight size={20} />
                 </button>
               </form>
             </div>
@@ -449,8 +491,8 @@ function App() {
             </p>
           </div>
           <div className="legal-links">
-            <span>Privacy Policy</span>
-            <span>Terms of Service</span>
+            <span onClick={() => setActiveModal('privacy')}>Privacy Policy</span>
+            <span onClick={() => setActiveModal('terms')}>Terms of Service</span>
           </div>
         </div>
       </footer>
@@ -464,6 +506,65 @@ function App() {
       >
         <WhatsAppIcon />
       </a>
+
+      {/* --- LEGAL MODALS (Privacy / Terms) --- */}
+      <AnimatePresence>
+        {activeModal && (
+          <motion.div 
+            className="legal-modal-overlay"
+            initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }}
+            onClick={() => setActiveModal(null)}
+          >
+            <motion.div 
+              className="legal-modal-content glass-card"
+              initial={{ y: 50, opacity: 0, scale: 0.95 }} 
+              animate={{ y: 0, opacity: 1, scale: 1 }} 
+              exit={{ y: 50, opacity: 0, scale: 0.95 }}
+              transition={{ duration: 0.3, ease: "easeOut" }}
+              onClick={(e) => e.stopPropagation()}
+            >
+              <div className="legal-modal-header">
+                <h3>{activeModal === 'privacy' ? 'Privacy Policy' : 'Terms of Service'}</h3>
+                <button className="legal-modal-close" onClick={() => setActiveModal(null)}>
+                  <X size={24} />
+                </button>
+              </div>
+              
+              <div className="legal-modal-body">
+                {activeModal === 'privacy' ? (
+                  <>
+                    <h4>1. Information We Collect</h4>
+                    <p>We collect information you provide directly to us when requesting a consultation, including your names, email address, and phone number. This information is strictly confidential and protected under therapeutic guidelines.</p>
+                    
+                    <h4>2. How We Use Your Information</h4>
+                    <p>Your data is used exclusively to contact you regarding your inquiry, schedule sessions, and provide counselling services. We do not sell, rent, or share your personal information with third-party marketers under any circumstances.</p>
+                    
+                    <h4>3. Data Security & Confidentiality</h4>
+                    <p>All communication, whether via the website, email, or WhatsApp, is handled with the utmost discretion. Client-therapist confidentiality is legally protected, meaning your identity and session contents are completely private.</p>
+                    
+                    <h4>4. Contact Us</h4>
+                    <p>If you have any questions or concerns about this Privacy Policy or how your data is handled, please contact us at Mindcare888@gmail.com.</p>
+                  </>
+                ) : (
+                  <>
+                    <h4>1. Acceptance of Terms</h4>
+                    <p>By accessing our website and booking a consultation, you agree to be bound by these Terms of Service. If you do not agree, please refrain from using our services.</p>
+                    
+                    <h4>2. Nature of Services</h4>
+                    <p>Happy MindCare provides professional relationship and marriage counselling. Therapy is a collaborative process, and while we use evidence-based methods, we cannot guarantee specific outcomes for your relationship.</p>
+                    
+                    <h4>3. Cancellations & Rescheduling</h4>
+                    <p>We value your time and ours. If you need to cancel or reschedule a session, we require a minimum of 24 hours notice. Late cancellations may be subject to a fee as outlined during your initial discovery call.</p>
+                    
+                    <h4>4. Emergency Situations</h4>
+                    <p>Our clinic is not an emergency service. If you or your partner are experiencing an active crisis, domestic violence, or a mental health emergency, please immediately contact local emergency services or a dedicated crisis hotline.</p>
+                  </>
+                )}
+              </div>
+            </motion.div>
+          </motion.div>
+        )}
+      </AnimatePresence>
     </div>
   );
 }
