@@ -1,12 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import { useScroll, useTransform } from 'framer-motion';
-
-// Global Components
-import { LegalModal } from './components/LegalModal';
-import { WhatsAppIcon } from './components/Icons';
 import './App.css';
 
-// Layout Sections
+// Section Components
 import { Navbar } from './components/sections/Navbar';
 import { Hero } from './components/sections/Hero';
 import { Editorial } from './components/sections/Editorial';
@@ -16,23 +12,30 @@ import { FAQ } from './components/sections/FAQ';
 import { Booking } from './components/sections/Booking';
 import { Footer } from './components/sections/Footer';
 
+// Utility / Modals
+import { LegalModal } from './components/LegalModal';
+import { WhatsAppIcon } from './components/Icons';
+
 function App() {
   const [isScrolled, setIsScrolled] = useState(false);
-  const [activeModal, setActiveModal] = useState(null);
+  const [activeModal, setActiveModal] = useState(null); 
   
+  // Default WhatsApp Message
+  const message = encodeURIComponent(
+    "Hello, I came across your mental health and therapy clinic in Chennai. I would like to know more about booking a counseling session. Could you please share the details and available timings?"
+  );
+
   const { scrollY } = useScroll();
   const heroY = useTransform(scrollY, [0, 1000], [0, 250]);
 
-  const whatsappMessage = encodeURIComponent("Hello, I came across your couple counselling services in Chennai. I would like to know more about booking a session. Could you please share the details and available timings?");
-
-  // Scroll Listener for Navbar
+  // Navbar Scroll Listener
   useEffect(() => {
     const handleScroll = () => setIsScrolled(window.scrollY > 20);
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
-  // Smooth Scroll Utility
+  // Smooth Scroll Controller
   const scrollTo = (id) => {
     const element = document.getElementById(id);
     if (element) {
@@ -50,7 +53,7 @@ function App() {
 
       <Navbar isScrolled={isScrolled} scrollTo={scrollTo} />
       
-      <Hero heroY={heroY} scrollTo={scrollTo} />
+      <Hero scrollTo={scrollTo} heroY={heroY} />
       <Editorial />
       <Services />
       <Testimonials />
@@ -59,12 +62,17 @@ function App() {
       
       <Footer scrollTo={scrollTo} setActiveModal={setActiveModal} />
 
-      {/* Floating WhatsApp Button */}
-      <a href={`https://wa.me/919840022830?text=${whatsappMessage}`} target="_blank" rel="noopener noreferrer" className="whatsapp-simple">
+      {/* Floating WhatsApp Action Button */}
+      <a
+        href={`https://wa.me/916369741441?text=${message}`}
+        target="_blank"
+        rel="noopener noreferrer"
+        className="whatsapp-simple"
+      >
         <WhatsAppIcon />
       </a>
 
-      {/* Global Legal Modal */}
+      {/* Global Privacy & Terms Modals */}
       <LegalModal activeModal={activeModal} setActiveModal={setActiveModal} />
     </div>
   );

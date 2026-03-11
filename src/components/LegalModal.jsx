@@ -20,6 +20,7 @@ export const LegalModal = ({ activeModal, setActiveModal }) => {
           transition={{ duration: 0.3, ease: "easeOut" }}
           onClick={(e) => e.stopPropagation()}
         >
+          {/* Modal Header */}
           <div className="legal-modal-header">
             <h3>{activeModal === 'privacy' ? 'Privacy Policy' : 'Terms of Service'}</h3>
             <button className="legal-modal-close" onClick={() => setActiveModal(null)}>
@@ -27,6 +28,7 @@ export const LegalModal = ({ activeModal, setActiveModal }) => {
             </button>
           </div>
           
+          {/* Modal Content Logic */}
           <div className="legal-modal-body">
             {activeModal === 'privacy' ? (
               <>
@@ -48,7 +50,7 @@ export const LegalModal = ({ activeModal, setActiveModal }) => {
                 <p>By accessing our website and booking a consultation, you agree to be bound by these Terms of Service. If you do not agree, please refrain from using our services.</p>
                 
                 <h4>2. Nature of Services</h4>
-                <p>Happy MindCare provides professional relationship and marriage counselling. Therapy is a collaborative process, and while we use evidence-based methods, we cannot guarantee specific outcomes for your relationship.</p>
+                <p>Happy MindCare provides professional individual, relationship, and family counselling. Therapy is a collaborative process, and while we use evidence-based methods, we cannot guarantee specific outcomes for your mental health journey.</p>
                 
                 <h4>3. Cancellations & Rescheduling</h4>
                 <p>We value your time and ours. If you need to cancel or reschedule a session, we require a minimum of 24 hours notice. Late cancellations may be subject to a fee as outlined during your initial discovery call.</p>

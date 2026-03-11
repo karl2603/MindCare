@@ -11,9 +11,11 @@ export const FAQ = () => {
         <div className="section-header">
           <h2>Frequently Asked Questions</h2>
           <div className="header-line"></div>
-          <p className="header-desc">Straightforward answers about our sessions, therapy methods, and clinic policies.</p>
+          <p className="header-desc">Straightforward answers about our counseling sessions, therapeutic methods, and clinic policies.</p>
         </div>
       </FadeIn>
+      
+      {/* Interactive FAQ Accordion */}
       <div className="faq-container" itemScope itemType="https://schema.org/FAQPage">
         {faqs.map((faq, index) => (
           <FadeIn key={index} delay={index * 0.1}>

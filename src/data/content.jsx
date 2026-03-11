@@ -1,44 +1,48 @@
 import React from 'react';
-import { Heart, Users, Shield, Flame, Compass, Laptop } from 'lucide-react';
+import { Brain, Heart, Users, Smile, Shield, Laptop } from 'lucide-react';
 
+// Therapists Directory Data
 export const therapists = [
   {
     name: 'Kaviya',
-    title: 'Couple & Marriage Counsellor, Chennai',
-    bio: 'With years of experience in relationship therapy, Dr. Kaviya helps couples reconnect emotionally and communicate with greater understanding. She supports partners dealing with misunderstandings, trust issues, and emotional distance, guiding them toward healthier conversations and stronger bonds. Her approach to couple counselling in Chennai focuses on empathy, emotional awareness, and practical tools that help couples rebuild trust and strengthen their relationship.',
+    title: 'Clinical Psychologist & Psychotherapist, Chennai',
+    bio: 'Kaviya is a highly sought-after clinical psychologist specializing in individual therapy for anxiety, depression, and trauma. With a deeply empathetic approach, she empowers clients using cognitive-behavioral therapy (CBT) and mindfulness techniques to overcome mental health challenges, build emotional resilience, and regain control over their lives.',
     image: '/Assets/KarunaTest.png',
-    tags: ['Couple Counselling Chennai', 'Emotional Connection', 'Communication Therapy']
+    tags: ['Anxiety & Depression', 'Cognitive Behavioral Therapy', 'Trauma Healing']
   },
   {
     name: 'Pandian',
-    title: 'Relationship Therapist & Clinical Psychologist, Chennai',
-    bio: 'Dr. Arjun offers a structured and practical approach to relationship counselling for couples in Chennai. He helps partners manage recurring conflicts, rebuild trust after difficult experiences, and develop healthier communication patterns. Through evidence-based couples therapy, he guides partners toward resolving disagreements, improving understanding, and creating a more stable and fulfilling relationship.',
+    title: 'Child, Family & Relationship Therapist, Chennai',
+    bio: 'Dedicated to fostering healthy dynamics, Pandian provides expert couples counseling, family therapy, and child psychology services. He creates a safe, judgment-free environment to resolve conflicts, improve communication, and address adolescent behavioral challenges, helping families and partners reconnect securely and thrive.',
     image: '/Assets/MaleTest.png',
-    tags: ['Marriage Counselling', 'Conflict Resolution', 'Trust Building']
+    tags: ['Marriage Counseling', 'Child Psychology', 'Family Dynamics']
   },
 ];
 
+// FAQ Data
 export const faqs = [
-  { question: "How long does couples therapy typically take?", answer: "While every relationship is unique, most couples see significant improvements within 12 to 16 sessions. Our goal is not to keep you in therapy forever, but to equip you with the tools to manage conflicts independently." },
-  { question: "What if my partner refuses to come to therapy?", answer: "It is very common for one partner to be hesitant. We recommend scheduling an initial 'Discovery' session. Often, when the reluctant partner sees that our process is structured and strictly non-judgmental, they become willing to participate." },
-  { question: "Do you take sides during arguments?", answer: "Never. In couples therapy, the relationship itself is our client. Our co-therapy model prevents bias, ensuring both individuals feel equally heard, validated, and challenged." },
-  { question: "Is therapy only for couples on the brink of divorce?", answer: "Not at all. Many of our clients are healthy couples seeking premarital counseling, navigating major life transitions (like having a baby or changing careers), or simply wanting to deepen their emotional intimacy." },
-  { question: "Do you offer online sessions, or is it strictly in-person?", answer: "We offer a hybrid approach. While we highly recommend in-person sessions at our Chennai clinic for the initial phases and high-conflict interventions, we provide secure, encrypted video sessions for ongoing support." }
+  { question: "What types of therapy and counseling do you offer in Chennai?", answer: "We provide a comprehensive range of mental health services, including individual counseling for anxiety and depression, couples and marriage therapy, child and adolescent psychology, and family therapy." },
+  { question: "How do I know if I need to see a psychologist?", answer: "Therapy isn't just for crises. Whether you are dealing with chronic stress, navigating a difficult life transition, experiencing relationship issues, or seeking personal growth, professional counseling provides a structured space for mental wellness." },
+  { question: "How long does a typical counseling process take?", answer: "Therapy is highly personalized. Some clients find clarity in 6 to 8 short-term, solution-focused sessions, while others dealing with complex trauma or chronic anxiety may benefit from long-term psychological support." },
+  { question: "Is my mental health data and conversation confidential?", answer: "Absolutely. We adhere to strict clinical confidentiality guidelines. Everything discussed in your therapy sessions remains 100% private and legally protected, creating a completely safe environment for your healing." },
+  { question: "Do you offer online therapy sessions or only in-person?", answer: "We offer a hybrid approach. You can visit our mental health clinic in Ayanambakkam, Chennai for in-person sessions, or choose highly secure, encrypted online video sessions to receive professional support from anywhere." }
 ];
 
+// Services Directory Data
 export const servicesList = [
-  { icon: <Heart />, title: "Premarital Counseling", desc: "Don't leave your future to chance. We help engaged couples navigate family expectations, financial goals, and emotional intimacy to build a bulletproof foundation before the wedding day." },
-  { icon: <Users />, title: "Couples Therapy", desc: "Break free from endless, exhausting arguments. We utilize the Gottman Method to teach you how to communicate your needs without criticism, fostering deep empathy and renewed passion." },
-  { icon: <Shield />, title: "Trust Recovery", desc: "Betrayal causes profound trauma, but healing is possible. We provide a highly structured, non-judgmental roadmap to process the pain, establish radical transparency, and rebuild a secure bond." },
-  { icon: <Flame />, title: "Intimacy & Connection", desc: "Overcome emotional and physical distance. We help couples break through barriers, communicate their desires, and rebuild a deeply fulfilling, secure, and passionate attachment." },
-  { icon: <Compass />, title: "Discernment Counseling", desc: "Unsure if you should stay or go? We provide a short-term, structured process (1-5 sessions) to help couples gain absolute clarity and confidence on the future of their marriage." },
-  { icon: <Laptop />, title: "Online Couples Counseling", desc: "Access professional support from the privacy and comfort of your home. Our secure online sessions provide the same depth, structure, and confidentiality as in-person therapy." }
+  { icon: <Brain />, title: "Individual Therapy", desc: "Struggling with anxiety, depression, or overthinking? Our personalized one-on-one therapy provides a confidential space to process complex emotions, develop healthy coping mechanisms, and restore your mental well-being." },
+  { icon: <Heart />, title: "Couples & Marriage", desc: "Relationships take work. Whether you are navigating communication breakdowns, intimacy issues, or a loss of connection, our evidence-based couples therapy helps partners rebuild trust and foster deep empathy." },
+  { icon: <Users />, title: "Family Counseling", desc: "Family dynamics can be complicated. We help resolve generational conflicts, establish healthy boundaries, and improve communication to create a more supportive, peaceful, and understanding home environment." },
+  { icon: <Smile />, title: "Child & Teen Therapy", desc: "Growing up in today's world is challenging. We offer specialized psychology services for children and adolescents dealing with academic stress, behavioral issues, peer pressure, and emotional regulation." },
+  { icon: <Shield />, title: "Trauma & PTSD", desc: "Healing from past trauma requires profound, professional care. We utilize trauma-informed therapies to help you safely process painful memories, overcome PTSD, and move forward with renewed strength." },
+  { icon: <Laptop />, title: "Online Counseling", desc: "Access top-rated psychological care from anywhere. Our highly secure, encrypted online counseling sessions ensure you receive professional, uninterrupted mental health support from the comfort of your home." }
 ];
 
+// Testimonials Data
 export const testimonialsList = [
-  { rating: 4.5, names: "Rahul & Sneha", text: "We were constantly arguing and struggling to understand each other. The counselling sessions helped us slow down, listen better, and communicate without hurting each other. It has made a real difference in our relationship." },
-  { rating: 5, names: "Santhosh & Avanthika", text: "Balancing expectations from family and our own relationship was very stressful. The counselling gave us a neutral and supportive space to talk openly and understand each other better. We feel much stronger as a couple now." },
-  { rating: 4, names: "Allwin & Hema", text: "Trust had broken down between us and we didn’t know how to move forward. Through therapy we learned practical ways to rebuild trust and communicate honestly. It wasn’t easy, but it helped us reconnect." },
-  { rating: 5, names: "Vikram & Amritha", text: "Having both perspectives in counselling helped us see things differently. We felt heard and respected throughout the sessions. It was a very safe and comfortable experience for us in Chennai." },
-  { rating: 4.5, names: "Pradeep & Subiksha", text: "We had been facing the same arguments for years. Counselling helped us understand the root of our conflicts and improve our communication. Our relationship feels calmer and much healthier now." }
+  { rating: 5, names: "Pradeep", text: "I was dealing with severe burnout and anxiety. The individual therapy sessions gave me the practical coping mechanisms I needed to finally feel like myself again. Truly life-changing psychological support." },
+  { rating: 4.5, names: "Allwin & Hema", text: "We were constantly arguing and struggling to understand each other. Couples counselling helped us slow down, listen better, and communicate without hurting each other. It saved our marriage." },
+  { rating: 5, names: "Rahul M", text: "Finding a judgment-free psychologist in Chennai was hard until I found Happy MindCare. The safe space provided allowed me to process my past trauma at my own pace." },
+  { rating: 5, names: "The Krishnan Family", text: "Family therapy helped us bridge the gap with our teenager. We learned how to set healthy boundaries and communicate with empathy. Our home is significantly more peaceful now." },
+  { rating: 4.5, names: "Hasini", text: "The online therapy sessions are incredibly convenient and just as effective as being in the clinic. The insights I've gained have drastically improved my daily mental health and focus." }
 ];

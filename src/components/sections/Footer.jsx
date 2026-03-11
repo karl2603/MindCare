@@ -4,23 +4,26 @@ import { BrandLogo } from '../Icons';
 
 export const Footer = ({ scrollTo, setActiveModal }) => (
   <footer id="contact" className="premium-footer">
+    
+    {/* Top CTA Banner */}
     <div className="footer-top-banner">
       <div className="footer-banner-content">
         <h2>Ready to rewrite your story?</h2>
-        <p>Don't wait until the distance feels impossible to cross.</p>
+        <p>Don't wait until the weight feels impossible to carry.</p>
         <button className="footer-cta-btn hover-sweep-btn" onClick={() => scrollTo('booking')}>
           Book Your Session Today <ArrowUpRight size={20} />
         </button>
       </div>
     </div>
 
+    {/* Main Footer Links & Contact Details */}
     <div className="footer-main-grid">
       <div className="footer-brand-col">
         <div className="footer-logo">
           <BrandLogo className="footer-logo-icon" />
           <h3>Happy MindCare</h3>
         </div>
-        <p className="footer-mission">Chennai's premier couple therapy dedicated to helping couples heal, communicate, and build secure emotional attachments.</p>
+        <p className="footer-mission">Chennai's premier mental health clinic dedicated to helping individuals, couples, and families heal, grow, and build psychological resilience.</p>
         <div className="social-pills">
           <a href="https://www.facebook.com/profile.php?id=61578581564154"><Facebook size={18} /></a>
           <a href="https://www.instagram.com/mindcare888"><Instagram size={18} /></a>
@@ -47,6 +50,7 @@ export const Footer = ({ scrollTo, setActiveModal }) => (
       </div>
     </div>
 
+    {/* Copyright & Legal Links */}
     <div className="footer-copyright">
       <div className="copyright-text">
         <p>&copy; {new Date().getFullYear()} Happy MindCare. All rights reserved.</p>

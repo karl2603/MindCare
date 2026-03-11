@@ -7,16 +7,18 @@ export const Editorial = () => (
   <section id="about" className="team-section">
     <FadeIn>
       <div className="section-header">
-        <h2>Two Experts. One Goal: Your Relationship.</h2>
+        <h2>Guidance from Chennai's Trusted Therapists.</h2>
         <div className="header-line"></div>
-        <p className="header-desc">Traditional therapy often leaves one partner feeling misunderstood. Our dual-therapist model ensures total balance, empathy, and objective clarity.</p>
+        <p className="header-desc">Our licensed clinical psychologists combine years of specialized expertise with genuine empathy, providing you with the highest standard of mental health care and personalized treatment.</p>
       </div>
     </FadeIn>
+    
+    {/* Editorial Staff Grid */}
     <div className="team-editorial-container">
       {therapists.map((therapist, index) => (
         <FadeIn key={therapist.name} delay={index * 0.1} className={`editorial-row ${index % 2 !== 0 ? 'reverse' : ''}`}>
           <div className="editorial-image-col">
-            <img src={therapist.image} alt={`${therapist.name} - Couple Therapist in Chennai`} />
+            <img src={therapist.image} alt={`${therapist.name} - Clinical Psychologist in Chennai`} />
           </div>
           <div className="editorial-content-col">
             <div className="editorial-content-inner">

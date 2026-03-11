@@ -13,6 +13,8 @@ export const Testimonials = () => (
         <p className="header-desc">Real stories from couples who have navigated their toughest challenges with our guidance.</p>
       </div>
     </FadeIn>
+    
+    {/* Animated Marquee Slider */}
     <div className="marquee-container">
       <Marquee speed={45} pauseOnHover={true} gradient={true} gradientColor={[253, 252, 248]} gradientWidth={100}>
         {testimonialsList.map((test, index) => (

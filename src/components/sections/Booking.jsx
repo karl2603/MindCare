@@ -5,6 +5,7 @@ import { FadeIn } from '../UI';
 export const Booking = () => {
   const [formStatus, setFormStatus] = useState('');
 
+  // Formspree Submission Logic
   const handleFormSubmit = async (e) => {
     e.preventDefault();
     const form = e.target;
@@ -28,14 +29,16 @@ export const Booking = () => {
     <section id="booking" className="booking-section">
       <FadeIn>
         <div className="booking-split-container">
+          
+          {/* Booking Information Panel */}
           <div className="booking-info-panel">
-            <h2>Take the first step toward each other.</h2>
-            <p>Reaching out is often the hardest part. Book a complimentary consultation to see if our approach is right for your relationship.</p>
+            <h2>Take the first step toward healing.</h2>
+            <p>Reaching out is often the hardest part. Book a consultation with the best psychologists in Chennai to find the right therapeutic approach for your mental health.</p>
             <ul className="booking-perks">
               {[
                 { title: "100% Confidential", desc: "Your privacy is legally protected." },
-                { title: "Free 15-Min Discovery Call", desc: "No commitment or obligation." },
-                { title: "Tailored to Your Needs", desc: "A roadmap built for your unique dynamic." }
+                { title: "Professional Care", desc: "Licensed clinical psychologists." },
+                { title: "Tailored to Your Needs", desc: "A roadmap built for your unique journey." }
               ].map((perk, i) => (
                 <li key={i}>
                   <CheckCircle2 className="perk-icon" />
@@ -45,6 +48,7 @@ export const Booking = () => {
             </ul>
           </div>
 
+          {/* Booking Form Panel */}
           <div className="booking-form-panel">
             <form className="luxury-form" action="https://formspree.io/f/xbdzddbn" method="POST" onSubmit={handleFormSubmit}>
               <div className="input-row">
