@@ -111,7 +111,17 @@ h1, h2, h3, h4 {
 .hover-sweep-btn:hover::after { left: 150%; }
 
 /* --- Utilities --- */
-.section-header { text-align: center; margin-bottom: 5rem; display: flex; flex-direction: column; align-items: center; position: relative; z-index: 2; }
+.section-header { 
+  text-align: center; 
+  margin-bottom: 5rem; 
+  display: flex; 
+  flex-direction: column; 
+  align-items: center; 
+  position: relative; 
+  z-index: 2; 
+  transform: translateZ(0); 
+  will-change: transform, opacity;
+}
 .section-header h2 { font-size: clamp(2.5rem, 6vw, 3.2rem); margin-bottom: 1.2rem; line-height: 1.2; }
 .header-line { width: 60px; height: 3px; background: var(--accent); border-radius: 2px; margin-bottom: 1.5rem;}
 .header-desc { color: var(--text-light); font-size: clamp(1rem, 3vw, 1.15rem); max-width: 650px; padding: 0 15px;}
@@ -133,7 +143,16 @@ section { padding: 8rem 5%; position: relative; z-index: 2; }
 .nav-cta:hover { background: var(--accent) !important; color: var(--white) !important; transform: translateY(-2px); box-shadow: 0 10px 20px rgba(196, 164, 100, 0.3); }
 
 /* --- Hero Section & Enhancements --- */
-.hero-section { min-height: 100vh; display: flex; align-items: center; justify-content: center; text-align: center; padding-top: 10rem; position: relative;}
+.hero-section { 
+  min-height: 100vh; 
+  display: flex; 
+  align-items: center; 
+  justify-content: center; 
+  text-align: center; 
+  padding-top: 10rem; 
+  position: relative;
+  overflow: hidden; 
+}
 .hero-content { max-width: 950px; padding: 0 15px; }
 
 /* Frosted glass badge with pulsing dot */
@@ -178,7 +197,6 @@ section { padding: 8rem 5%; position: relative; z-index: 2; }
 
 .hero-buttons { display: flex; gap: 1.5rem; justify-content: center; align-items: center; }
 
-/* Enhanced Button with glowing aura */
 .primary-btn {
   background: var(--primary); color: var(--white); border: none;
   padding: 0.6rem 0.6rem 0.6rem 2.5rem; border-radius: 100px;
@@ -202,40 +220,6 @@ section { padding: 8rem 5%; position: relative; z-index: 2; }
   font-family: 'Manrope', sans-serif;
 }
 .secondary-btn:hover { background: var(--primary); color: var(--white); transform: translateY(-4px); box-shadow: 0 15px 30px rgba(15, 41, 30, 0.15); }
-
-/* Silicon Valley Trust Avatar Cluster */
-.hero-trust {
-  display: flex; align-items: center; justify-content: center; gap: 1.5rem;
-  margin-top: 4rem; padding-top: 2rem; border-top: 1px solid rgba(15, 41, 30, 0.1);
-  max-width: 500px; margin-inline: auto;
-}
-.avatar-group { display: flex; align-items: center; }
-.avatar-group img { 
-  width: 45px; height: 45px; border-radius: 50%; 
-  border: 3px solid var(--bg-color); margin-left: -15px; object-fit: cover; 
-}
-.avatar-group img:first-child { margin-left: 0; }
-.avatar-more { 
-  width: 45px; height: 45px; border-radius: 50%; background: var(--primary); 
-  color: var(--accent); display: flex; align-items: center; justify-content: center; 
-  font-size: 0.85rem; font-weight: 700; border: 3px solid var(--bg-color); 
-  margin-left: -15px; z-index: 1; 
-}
-.trust-text { display: flex; flex-direction: column; align-items: flex-start; text-align: left;}
-.stars-small { display: flex; gap: 2px; margin-bottom: 4px; }
-.trust-text span { font-size: 0.95rem; color: var(--text-light); font-weight: 600; font-family: 'Manrope', sans-serif;}
-
-/* Elegant Scroll Indicator */
-.scroll-indicator {
-  position: absolute; bottom: 30px; left: 50%;
-  color: var(--primary); font-size: 0.75rem; font-weight: 700; 
-  letter-spacing: 2px; text-transform: uppercase; opacity: 0.6; 
-}
-.scroll-line { 
-  width: 2px; height: 40px; 
-  background: linear-gradient(to bottom, var(--primary), transparent); 
-  border-radius: 2px;
-}
 
 /* =========================================
    EDITORIAL TEAM SECTION 
@@ -272,7 +256,7 @@ section { padding: 8rem 5%; position: relative; z-index: 2; }
   width: 100%;
   height: 100%;
   object-fit: cover;
-  object-position: top; /* Prevents forehead cropping */
+  object-position: top; 
   transition: transform 1.2s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
@@ -411,6 +395,7 @@ section { padding: 8rem 5%; position: relative; z-index: 2; }
 .booking-info-panel::before { content: ''; position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: radial-gradient(circle at top left, rgba(196, 164, 100, 0.15), transparent 70%); pointer-events: none; }
 .booking-info-panel h2 { color: var(--white); font-size: clamp(2.5rem, 6vw, 3.8rem); line-height: 1.1; margin-bottom: 1.5rem; z-index: 1;}
 .booking-info-panel p { color: rgba(255,255,255,0.8); font-size: 1.15rem; line-height: 1.8; margin-bottom: 3rem; z-index: 1;}
+
 .booking-perks { list-style: none; display: flex; flex-direction: column; gap: 2rem; z-index: 1;}
 .booking-perks li { display: flex; align-items: flex-start; gap: 1.2rem; }
 .perk-icon { color: var(--accent); flex-shrink: 0; margin-top: 2px;}
@@ -438,10 +423,9 @@ section { padding: 8rem 5%; position: relative; z-index: 2; }
 
 .footer-banner-content h2 { 
   color: var(--accent); 
-  font-size: clamp(1.5rem, 6.5vw, 4.5rem); 
+  font-size: clamp(2rem, 6.5vw, 4.5rem); 
   margin-bottom: 1rem; 
-  line-height: 1.1; 
-  white-space: nowrap; 
+  line-height: 1.2; 
 }
 
 .footer-banner-content p { 
@@ -453,7 +437,6 @@ section { padding: 8rem 5%; position: relative; z-index: 2; }
 .footer-cta-btn { background: var(--white); color: var(--primary); border: none; padding: 1.4rem 3.5rem; border-radius: 100px; font-size: 1.2rem; font-weight: 700; cursor: pointer; display: inline-flex; align-items: center; gap: 1rem; transition: var(--transition); font-family: 'Manrope', sans-serif; box-shadow: 0 15px 30px rgba(0,0,0,0.1); }
 .footer-cta-btn:hover { background: var(--accent); color: var(--white); transform: translateY(-4px); box-shadow: 0 20px 40px rgba(0,0,0,0.25); }
 
-/* Adjustments for balanced footer spacing */
 .footer-main-grid { max-width: 1300px; margin: 0 auto; padding: 5rem 5%; display: grid; grid-template-columns: 2fr 1fr 1.5fr; gap: 4rem; }
 .footer-logo { display: flex; align-items: center; gap: 15px; margin-bottom: 1.5rem; }
 .footer-logo h3 { color: var(--white); font-size: 2.2rem; margin: 0; }
@@ -469,7 +452,7 @@ section { padding: 8rem 5%; position: relative; z-index: 2; }
 .footer-links-col li:hover { color: var(--white); transform: translateX(8px); }
 
 .footer-contact-col { display: flex; flex-direction: column; gap: 1.5rem; }
-.contact-item { display: flex; align-items: flex-start; gap: 1.2rem; color: rgba(255,255,255,0.7); line-height: 1.6; }
+.contact-item { display: flex; align-items: flex-start; gap: 1.2rem; color: rgba(255,255,255,0.7); line-height: 1.6; word-break: break-word; }
 .contact-icon { color: var(--accent); flex-shrink: 0; margin-top: 3px;}
 .contact-item strong { color: var(--white); font-weight: 600; }
 
@@ -504,17 +487,17 @@ section { padding: 8rem 5%; position: relative; z-index: 2; }
   section { padding: 6rem 5%; }
   .hero-section { padding-top: 8rem; }
   
-  /* FIXED: Adjusted image shape and container overlap to prevent forehead clipping */
   .editorial-row, .editorial-row.reverse { flex-direction: column; gap: 0; }
   .editorial-image-col { width: 100%; border-radius: 24px 24px 0 0; aspect-ratio: 1/1; max-height: 600px; }
   .editorial-content-col { width: 95%; margin: -50px auto 0 auto !important; padding: 4rem 3rem; border-radius: 24px; }
   
   .booking-split-container { grid-template-columns: 1fr; }
-  .booking-info-panel { padding: 5rem 4rem; text-align: center;}
-  .booking-perks { align-items: center; text-align: left; }
+  
+  .booking-info-panel { padding: 5rem 4rem; text-align: center; display: flex; flex-direction: column; align-items: center; }
+  .booking-perks { width: fit-content; margin: 0 auto; display: flex; flex-direction: column; align-items: flex-start; text-align: left; }
+  
   .booking-form-panel { padding: 5rem 4rem; }
   
-  /* Tighter footer gap on tablets */
   .footer-main-grid { grid-template-columns: 1fr 1fr; gap: 3rem;}
 }
 
@@ -524,7 +507,6 @@ section { padding: 8rem 5%; position: relative; z-index: 2; }
   .nav-links { display: none; }
   .navbar.scrolled { padding: 1rem 5%; }
   
-  /* Mobile Nav tweaks */
   .logo-text { font-size: 1.4rem; }
   .nav-cta { padding: 0.6rem 1.5rem; font-size: 0.9rem;}
 
@@ -532,12 +514,6 @@ section { padding: 8rem 5%; position: relative; z-index: 2; }
   .secondary-btn { width: 100%; }
   .primary-btn { width: 100%; justify-content: center; }
   
-  /* Hero specific mobile styles */
-  .hero-trust { flex-direction: column; gap: 1rem; margin-top: 3rem; border-top: none; }
-  .trust-text { align-items: center; text-align: center; }
-  .scroll-indicator { display: none; }
-  
-  /* FIXED: Ensure mobile images are tall enough, lower the negative margin overlap */
   .editorial-image-col { aspect-ratio: 4 / 5; max-height: 450px; }
   .editorial-content-col { padding: 2.5rem 1.5rem; width: 95%; margin-top: -40px !important; }
   
@@ -547,15 +523,19 @@ section { padding: 8rem 5%; position: relative; z-index: 2; }
   .luxury-form { gap: 3rem; }
   
   .footer-top-banner { padding: 4rem 5%; }
+
+  .footer-main-grid { grid-template-columns: 1fr; gap: 2.5rem; padding: 4rem 5%; text-align: center; }
+  .footer-logo { justify-content: center; }
+  .footer-mission { margin: 0 auto 2rem auto; }
+  .social-pills { justify-content: center; }
+  .contact-item { flex-direction: column; align-items: center; text-align: center; gap: 0.5rem; }
+  .contact-icon { margin-top: 0; }
   
-  /* Balanced footer gaps for mobile */
-  .footer-main-grid { grid-template-columns: 1fr; gap: 2.5rem; padding: 4rem 5%;}
   .footer-copyright { flex-direction: column; gap: 1.5rem; text-align: center; }
   .copyright-text { align-items: center; }
   
   .whatsapp-simple { bottom: 20px; right: 20px; width: 55px; height: 55px; }
   
-  /* FAQ Adjustments for Mobile */
   .faq-question { padding: 1.5rem; }
   .faq-answer { padding: 0 1.5rem 1.5rem 1.5rem; }
 }
@@ -563,107 +543,107 @@ section { padding: 8rem 5%; position: relative; z-index: 2; }
 /* =========================================
    LEGAL MODAL STYLES (Privacy / Terms)
    ========================================= */
-   .legal-modal-overlay {
-    position: fixed;
-    top: 0; left: 0; width: 100vw; height: 100vh;
-    background: rgba(15, 41, 30, 0.6);
-    backdrop-filter: blur(10px);
-    -webkit-backdrop-filter: blur(10px);
-    z-index: 9999;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+.legal-modal-overlay {
+  position: fixed;
+  top: 0; left: 0; width: 100vw; height: 100vh;
+  background: rgba(15, 41, 30, 0.6);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  z-index: 9999;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem;
+}
+
+.legal-modal-content {
+  background: var(--bg-color);
+  width: 100%;
+  max-width: 750px;
+  max-height: 85vh;
+  display: flex;
+  flex-direction: column;
+  border-radius: 24px;
+  overflow: hidden;
+  box-shadow: 0 40px 100px rgba(0,0,0,0.3);
+}
+
+.legal-modal-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 2.5rem 3rem;
+  border-bottom: 1px solid rgba(15, 41, 30, 0.1);
+  background: var(--white);
+}
+
+.legal-modal-header h3 {
+  margin: 0;
+  font-size: 2rem;
+  color: var(--primary);
+}
+
+.legal-modal-close {
+  background: rgba(15, 41, 30, 0.05);
+  color: var(--primary);
+  border: none;
+  width: 45px;
+  height: 45px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: var(--transition);
+}
+
+.legal-modal-close:hover {
+  background: var(--accent);
+  color: var(--white);
+  transform: rotate(90deg);
+}
+
+.legal-modal-body {
+  padding: 3rem;
+  overflow-y: auto;
+  scrollbar-width: thin;
+  scrollbar-color: var(--primary) transparent;
+}
+
+.legal-modal-body h4 {
+  font-family: 'Manrope', sans-serif;
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: var(--primary);
+  margin: 2rem 0 1rem 0;
+}
+
+.legal-modal-body h4:first-child {
+  margin-top: 0;
+}
+
+.legal-modal-body p {
+  color: var(--text-light);
+  line-height: 1.8;
+  margin-bottom: 1.5rem;
+  font-size: 1.05rem;
+}
+
+/* Modal Responsiveness */
+@media (max-width: 768px) {
+  .legal-modal-overlay {
+    padding: 1rem;
+  }
+  .legal-modal-content {
+    max-height: 90vh;
+  }
+  .legal-modal-header {
+    padding: 1.5rem 2rem;
+  }
+  .legal-modal-header h3 {
+    font-size: 1.6rem;
+  }
+  .legal-modal-body {
     padding: 2rem;
   }
-  
-  .legal-modal-content {
-    background: var(--bg-color);
-    width: 100%;
-    max-width: 750px;
-    max-height: 85vh;
-    display: flex;
-    flex-direction: column;
-    border-radius: 24px;
-    overflow: hidden;
-    box-shadow: 0 40px 100px rgba(0,0,0,0.3);
-  }
-  
-  .legal-modal-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 2.5rem 3rem;
-    border-bottom: 1px solid rgba(15, 41, 30, 0.1);
-    background: var(--white);
-  }
-  
-  .legal-modal-header h3 {
-    margin: 0;
-    font-size: 2rem;
-    color: var(--primary);
-  }
-  
-  .legal-modal-close {
-    background: rgba(15, 41, 30, 0.05);
-    color: var(--primary);
-    border: none;
-    width: 45px;
-    height: 45px;
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    cursor: pointer;
-    transition: var(--transition);
-  }
-  
-  .legal-modal-close:hover {
-    background: var(--accent);
-    color: var(--white);
-    transform: rotate(90deg);
-  }
-  
-  .legal-modal-body {
-    padding: 3rem;
-    overflow-y: auto;
-    scrollbar-width: thin;
-    scrollbar-color: var(--primary) transparent;
-  }
-  
-  .legal-modal-body h4 {
-    font-family: 'Manrope', sans-serif;
-    font-size: 1.2rem;
-    font-weight: 700;
-    color: var(--primary);
-    margin: 2rem 0 1rem 0;
-  }
-  
-  .legal-modal-body h4:first-child {
-    margin-top: 0;
-  }
-  
-  .legal-modal-body p {
-    color: var(--text-light);
-    line-height: 1.8;
-    margin-bottom: 1.5rem;
-    font-size: 1.05rem;
-  }
-  
-  /* Modal Responsiveness */
-  @media (max-width: 768px) {
-    .legal-modal-overlay {
-      padding: 1rem;
-    }
-    .legal-modal-content {
-      max-height: 90vh;
-    }
-    .legal-modal-header {
-      padding: 1.5rem 2rem;
-    }
-    .legal-modal-header h3 {
-      font-size: 1.6rem;
-    }
-    .legal-modal-body {
-      padding: 2rem;
-    }
-  }
+}
