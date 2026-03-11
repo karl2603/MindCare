@@ -3,14 +3,14 @@ import { Heart, Users, Shield, Flame, Compass, Laptop } from 'lucide-react';
 
 export const therapists = [
   {
-    name: 'Dr. Kaviya',
+    name: 'Kaviya',
     title: 'Couple & Marriage Counsellor, Chennai',
     bio: 'With years of experience in relationship therapy, Dr. Kaviya helps couples reconnect emotionally and communicate with greater understanding. She supports partners dealing with misunderstandings, trust issues, and emotional distance, guiding them toward healthier conversations and stronger bonds. Her approach to couple counselling in Chennai focuses on empathy, emotional awareness, and practical tools that help couples rebuild trust and strengthen their relationship.',
     image: '/Assets/KarunaTest.png',
     tags: ['Couple Counselling Chennai', 'Emotional Connection', 'Communication Therapy']
   },
   {
-    name: 'Dr. Arjun Raman',
+    name: 'Pandian',
     title: 'Relationship Therapist & Clinical Psychologist, Chennai',
     bio: 'Dr. Arjun offers a structured and practical approach to relationship counselling for couples in Chennai. He helps partners manage recurring conflicts, rebuild trust after difficult experiences, and develop healthier communication patterns. Through evidence-based couples therapy, he guides partners toward resolving disagreements, improving understanding, and creating a more stable and fulfilling relationship.',
     image: '/Assets/MaleTest.png',
@@ -37,7 +37,7 @@ export const servicesList = [
 
 export const testimonialsList = [
   { rating: 4.5, names: "Rahul & Sneha", text: "We were constantly arguing and struggling to understand each other. The counselling sessions helped us slow down, listen better, and communicate without hurting each other. It has made a real difference in our relationship." },
-  { rating: 5, names: "Arjun & Priya", text: "Balancing expectations from family and our own relationship was very stressful. The counselling gave us a neutral and supportive space to talk openly and understand each other better. We feel much stronger as a couple now." },
+  { rating: 5, names: "Santhosh & Avanthika", text: "Balancing expectations from family and our own relationship was very stressful. The counselling gave us a neutral and supportive space to talk openly and understand each other better. We feel much stronger as a couple now." },
   { rating: 4, names: "Allwin & Hema", text: "Trust had broken down between us and we didn’t know how to move forward. Through therapy we learned practical ways to rebuild trust and communicate honestly. It wasn’t easy, but it helped us reconnect." },
   { rating: 5, names: "Vikram & Amritha", text: "Having both perspectives in counselling helped us see things differently. We felt heard and respected throughout the sessions. It was a very safe and comfortable experience for us in Chennai." },
   { rating: 4.5, names: "Pradeep & Subiksha", text: "We had been facing the same arguments for years. Counselling helped us understand the root of our conflicts and improve our communication. Our relationship feels calmer and much healthier now." }

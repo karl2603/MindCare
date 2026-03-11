@@ -18,9 +18,9 @@ export const Footer = ({ scrollTo, setActiveModal }) => (
       <div className="footer-brand-col">
         <div className="footer-logo">
           <BrandLogo className="footer-logo-icon" />
-          <h3>Happy MindCare<span>.</span></h3>
+          <h3>Happy MindCare</h3>
         </div>
-        <p className="footer-mission">Chennai's premier co-therapy clinic dedicated to helping couples heal, communicate, and build secure emotional attachments.</p>
+        <p className="footer-mission">Chennai's premier couple therapy dedicated to helping couples heal, communicate, and build secure emotional attachments.</p>
         <div className="social-pills">
           <a href="https://www.facebook.com/profile.php?id=61578581564154"><Facebook size={18} /></a>
           <a href="https://www.instagram.com/mindcare888"><Instagram size={18} /></a>
@@ -41,9 +41,9 @@ export const Footer = ({ scrollTo, setActiveModal }) => (
       <div className="footer-contact-col">
         <h4>Connect</h4>
         <div className="contact-item"><MapPin className="contact-icon" /><div><p><strong>Ayanambakkam</strong></p><p>Chennai, Tamil Nadu 600077</p></div></div>
-        <div className="contact-item"><Clock className="contact-icon" /><div><p><strong>Mon - Sat:</strong> 10:00 AM - 8:00 PM</p><p>Online & In-person available.</p></div></div>
-        <div className="contact-item"><Phone className="contact-icon" /><p>+91 98400 22830</p></div>
-        <div className="contact-item"><Mail className="contact-icon" /><p>Mindcare888@gmail.com</p></div>
+        <div className="contact-item"><Clock className="contact-icon" /><div><p><strong>Mon - Sat:</strong> 10:00 AM - 10:00 PM</p><p>Online & In-person available.</p></div></div>
+        <div className="contact-item"><Phone className="contact-icon" /><p>+91 98400 22830 / +91 70109 70260</p></div>
+        <div className="contact-item"><Mail className="contact-icon" /><p>mindcare888@gmail.com</p></div>
       </div>
     </div>
 
