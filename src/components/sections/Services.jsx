@@ -11,8 +11,6 @@ export const Services = () => (
         <p className="header-desc">Practical, evidence-based therapy tailored to your unique dynamic.</p>
       </div>
     </FadeIn>
-    
-    {/* Services Grid */}
     <div className="services-grid">
       {servicesList.map((service, index) => (
         <FadeIn key={service.title} delay={index * 0.1} className="service-card-wrapper">

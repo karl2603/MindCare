@@ -64,7 +64,7 @@ function App() {
 
       {/* Floating WhatsApp Action Button */}
       <a
-        href={`https://wa.me/916369741441?text=${message}`}
+        href={`https://wa.me/919840022830?text=${message}`}
         target="_blank"
         rel="noopener noreferrer"
         className="whatsapp-simple"

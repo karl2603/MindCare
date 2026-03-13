@@ -10,7 +10,7 @@ export const Hero = ({ heroY, scrollTo }) => (
       <FadeIn>
         <span className="hero-badge">
           <span className="pulse-dot"></span>
-          Chennai's Trusted Mental Health Clinic
+          Chennai's Trusted Therapy Clinic
         </span>
       </FadeIn>
       
