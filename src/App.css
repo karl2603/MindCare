@@ -241,7 +241,7 @@ section { padding: 8rem 5%; position: relative; z-index: 2; }
   width: 100%;
   height: 100%;
   object-fit: cover;
-  object-position: center; 
+  object-position: center 25%; 
   transition: transform 1.2s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
@@ -352,7 +352,6 @@ section { padding: 8rem 5%; position: relative; z-index: 2; }
 .service-content h3 { font-size: 1.8rem; margin-bottom: 1rem; transition: color 0.3s ease;}
 .service-card:hover .service-content h3 { color: var(--accent); }
 
-/* --- DRAGGABLE & UNIFORM TESTIMONIALS --- */
 .testimonials-slider {
   display: flex;
   gap: 2rem;
@@ -362,7 +361,7 @@ section { padding: 8rem 5%; position: relative; z-index: 2; }
   scrollbar-width: none;
   -ms-overflow-style: none;
   cursor: grab;
-  align-items: stretch; /* Forces every card to match the tallest card's height perfectly */
+  align-items: stretch;
   scroll-behavior: auto; 
 }
 
@@ -385,7 +384,6 @@ section { padding: 8rem 5%; position: relative; z-index: 2; }
   user-select: none;
 }
 
-/* Internal elements pointer events removed so user doesn't highlight text while dragging */
 .quote-icon { position: absolute; top: 2rem; right: 2rem; color: rgba(196, 164, 100, 0.15); pointer-events: none; }
 .stars { color: var(--accent); display: flex; align-items: center; gap: 0.3rem; margin-bottom: 1.5rem; pointer-events: none; }
 .stars svg { flex-shrink: 0; }
@@ -396,7 +394,7 @@ section { padding: 8rem 5%; position: relative; z-index: 2; }
   margin-bottom: 2rem; 
   line-height: 1.8; 
   font-style: italic; 
-  flex-grow: 1; /* Pushes the author's name down so they are completely aligned */
+  flex-grow: 1;
   pointer-events: none; 
 }
 
